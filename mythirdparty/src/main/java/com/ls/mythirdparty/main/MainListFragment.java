@@ -48,16 +48,10 @@ public class MainListFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (view == null) {
-                    return;
-                }
                 ProgressBar bar = (ProgressBar) view.findViewById(R.id.fragment_images_progress);
                 bar.setVisibility(View.GONE);
-
                 recyclerView.setVisibility(View.VISIBLE);
                 adapter.setImages(Data.URLS);
-
-
             }
         }, 1000);
     }
