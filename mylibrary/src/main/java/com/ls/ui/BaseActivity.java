@@ -11,7 +11,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private boolean mFirstStart = true;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 

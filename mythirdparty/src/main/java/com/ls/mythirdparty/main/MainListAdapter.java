@@ -153,7 +153,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.Images
             imageAuthor = (TextView) itemView.findViewById(R.id.item_image_author);
             imageDate = (TextView) itemView.findViewById(R.id.item_image_date);
 
-            //imageView.setOnClickListener(this);
+            imageView.setOnClickListener(this);
 
         }
 

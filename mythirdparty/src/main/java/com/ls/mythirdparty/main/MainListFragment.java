@@ -1,7 +1,10 @@
 package com.ls.mythirdparty.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,12 +39,7 @@ public class MainListFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
         final MainListAdapter adapter = new MainListAdapter();
-        adapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onClick(View v, int position) {
-
-            }
-        });
+        adapter.setOnItemClickListener(mItemClickListener);
 
         recyclerView.setAdapter(adapter);
 
@@ -55,4 +53,18 @@ public class MainListFragment extends Fragment {
             }
         }, 1000);
     }
+
+    private OnItemClickListener mItemClickListener = new OnItemClickListener() {
+        @Override
+        public void onClick(View v, int position) {
+
+            View cover = v.findViewById(R.id.item_image_img);
+            Intent intent = new Intent(getActivity(), MainDetailActivity.class);
+            intent.putExtra("position", position);
+            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+                    cover, "cover");
+
+            ActivityCompat.startActivity(getActivity(), intent, optionsCompat.toBundle());
+        }
+    };
 }
